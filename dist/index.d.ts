@@ -1,4 +1,3 @@
-import { MyElement } from "./components/my-element";
 import { AddColumn } from "./components/add-column";
-export { MyElement, AddColumn };
+export { AddColumn };
 //# sourceMappingURL=index.d.ts.map

@@ -8,12 +8,21 @@ import summary from 'rollup-plugin-summary';
 import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import { files } from './build/Rollup.js';
+import postcss from 'rollup-plugin-postcss';
+import cssnano from 'cssnano';
+import postcssPresetEnv from 'postcss-preset-env';
+
 
 export default {
-  input: 'dist/index.js',
+  input: [
+    ...files("dist/components/"),
+    ...files("dist/")
+  ],
   output: {
-    file: 'lit-elements.bundle.js',
-    format: 'esm',
+    dir: "docs/js",
+    format: "esm",
+    sourcemap: true
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -21,8 +30,28 @@ export default {
     }
   },
   plugins: [
-    replace({preventAssignment: false, 'Reflect.decorate': 'undefined'}),
+    replace({preventAssignment: false, 'Reflect.decorate': 'undefined', extensions: ['.js', '.ts','.jsx', '.tsx', '.css', '.less']}),
     resolve(),
+    postcss({
+      extract: true,
+      plugins: [
+        postcssPresetEnv({
+          stage: 3,
+          features: {
+            'nesting-rules' : true
+          }
+        }),
+        cssnano({
+          preset: 'default',
+        })
+      ],
+      modules: true,
+      autoModules: true,
+      minimize: true,
+      sourceMap: true,
+      inject: false,
+      include: ['**/*.css'],
+    }),
     /**
      * This minification setup serves the static site generation.
      * For bundling and minification, check the README.md file.

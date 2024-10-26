@@ -7,7 +7,7 @@
   "module": "my-element.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "rimraf dist && tsc && shx cp src/components/**/*.css dist/components/styles/",
     "build:lit": "rollup -c rollup.config.js",
     "build:watch": "tsc --watch",
     "clean": "rimraf my-element.{d.ts,d.ts.map,js,js.map} test/my-element.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",
@@ -19,7 +19,7 @@
     "docs:clean": "rimraf docs",
     "docs:gen": "eleventy --config=.eleventy.cjs",
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
-    "docs:build": "rollup -c --file docs/lit-elements.bundle.js",
+    "docs:build": "rollup -c",
     "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
     "docs:serve": "wds --root-dir=docs --node-resolve --watch",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
@@ -42,7 +42,8 @@
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "lit": "^3.2.0"
+    "lit": "^3.2.0",
+    "shx": "^0.3.4"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
@@ -59,12 +60,18 @@
     "@web/test-runner": "^0.15.0",
     "@web/test-runner-playwright": "^0.9.0",
     "@webcomponents/webcomponentsjs": "^2.8.0",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
     "eslint": "^8.15.0",
     "lit-analyzer": "^1.2.1",
+    "postcss": "^8.4.47",
+    "postcss-preset-env": "^10.0.8",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup": "^4.18.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-summary": "^2.0.1",
+    "tailwindcss": "^3.4.14",
     "typescript": "~5.5.0"
   },
   "customElements": "custom-elements.json"
