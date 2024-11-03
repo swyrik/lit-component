@@ -1,25 +1,72 @@
-import{u as t,f as e,i,r,x as o}from"./lit-element-Cjx9BPvc.js";import{t as s}from"./custom-element-CuiGoCVB.js";
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */const n={attribute:!0,type:String,converter:t,reflect:!1,hasChanged:e},a=(t=n,e,i)=>{const{kind:r,metadata:o}=i;let s=globalThis.litPropertyMetadata.get(o);if(void 0===s&&globalThis.litPropertyMetadata.set(o,s=new Map),s.set(i.name,t),"accessor"===r){const{name:r}=i;return{set(i){const o=e.get.call(this);e.set.call(this,i),this.requestUpdate(r,o,t)},init(e){return void 0!==e&&this.P(r,void 0,t),e}}}if("setter"===r){const{name:r}=i;return function(i){const o=this[r];e.call(this,i),this.requestUpdate(r,o,t)}}throw Error("Unsupported decorator location: "+r)};function h(t){return(e,i)=>"object"==typeof i?a(t,e,i):((t,e,i)=>{const r=e.hasOwnProperty(i);return e.constructor.createProperty(i,r?{...t,wrapped:!0}:t),r?Object.getOwnPropertyDescriptor(e,i):void 0})(t,e,i)}var l=function(t,e,i,r){var o,s=arguments.length,n=s<3?e:null===r?r=Object.getOwnPropertyDescriptor(e,i):r;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)n=Reflect.decorate(t,e,i,r);else for(var a=t.length-1;a>=0;a--)(o=t[a])&&(n=(s<3?o(n):s>3?o(e,i,n):o(e,i))||n);return s>3&&n&&Object.defineProperty(e,i,n),n};let c=class extends r{static get formAssociated(){return!0}constructor(){super(),this.type="text",this.value="",this.internals=this.attachInternals()}updated(t){t.has("value")&&this.internals.setFormValue(this.value.toString()),super.update(t)}handleInput(t){const e=t.target;this.value=e.value,this.dispatchEvent(new CustomEvent("change",{detail:{name:this.label,value:this.value},bubbles:!0,composed:!0}))}render(){return o`<label for=${this.label}>${this.label}</label> <input .value=${this.value} name=${this.label} id=${this.label} type=${this.type} @change=${this.handleInput} />`}};c.styles=i`
-      input {
-        width: 100%;
-        height: 2em;
-        border: 1px solid rgba(0,0,0,0.1);
+import{i as t,r as e,x as i}from"./lit-element-CiB-LLQB.js";import{t as o}from"./custom-element-CuiGoCVB.js";import{n as r}from"./property-B06GLbQC.js";var s,n,a,l=function(t,e,i,o){var r,s=arguments.length,n=s<3?e:null===o?o=Object.getOwnPropertyDescriptor(e,i):o;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)n=Reflect.decorate(t,e,i,o);else for(var a=t.length-1;a>=0;a--)(r=t[a])&&(n=(s<3?r(n):s>3?r(e,i,n):r(e,i))||n);return s>3&&n&&Object.defineProperty(e,i,n),n},p=function(t,e,i,o){if("a"===i&&!o)throw new TypeError("Private accessor was defined without a getter");if("function"==typeof e?t!==e||!o:!e.has(t))throw new TypeError("Cannot read private member from an object whose class did not declare it");return"m"===i?o:"a"===i?o.call(t):o?o.value:e.get(t)},c=function(t,e,i,o,r){if("m"===o)throw new TypeError("Private method is not writable");if("a"===o&&!r)throw new TypeError("Private accessor was defined without a setter");if("function"==typeof e?t!==e||!r:!e.has(t))throw new TypeError("Cannot write private member to an object whose class did not declare it");return"a"===o?r.call(t,i):r?r.value=i:e.set(t,i),i};let d=class extends e{constructor(){super(),s.add(this),this.name="",this.value="",this.label="",this.type="text",this.required=!1,this.placeholder="",this.disabled=!1,n.set(this,""),this.internals=this.attachInternals()}formAssociatedCallback(t){}formDisabledCallback(t){this.disabled=t,this.requestUpdate()}formResetCallback(){this.value=p(this,n,"f"),this.internals.setFormValue(p(this,n,"f")),this.requestUpdate(),this.dispatchEvent(new CustomEvent("rest",{detail:{value:p(this,n,"f")},bubbles:!0,composed:!0}))}formStateRestoreCallback(t,e){this.value=t||"",this.internals.setFormValue(this.value),console.log("Form state restored:",{state:t,mode:e,value:this.value}),this.requestUpdate()}checkValidity(){const t=this.renderRoot?.querySelector("input");if(t){const e=t.checkValidity();return this.internals.setValidity(t.validity,t.validationMessage,t),e}return!0}connectedCallback(){super.connectedCallback(),c(this,n,this.value,"f"),this.internals.setFormValue(this.value)}render(){return i`
+      <div class="form-field">
+        ${this.label?i`<label for="input">${this.label}</label>`:null}
+        <input
+          id="input"
+          .type=${this.type}
+          .value=${this.value}
+          .placeholder=${this.placeholder}
+          ?required=${this.required}
+          ?disabled=${this.disabled}
+          @input=${p(this,s,"m",a)}
+          @blur=${this.checkValidity}
+        />
+      </div>
+    `}};n=new WeakMap,s=new WeakSet,a=function(t){const e=t.target;this.value=e.value,this.internals.setFormValue(this.value),this.dispatchEvent(new CustomEvent("change",{detail:{value:this.value},bubbles:!0,composed:!0}))},d.styles=t`
+    :host {
+      display: block;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    input {
+      padding: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 4px;
-      }
-      
-      label {
-        font-size: 1em;
-        font-family: verdana;
-        margin-bottom: 1em;
-      }
-      
-      input:hover {
-        border: 1px solid rgba(0,0,0,0.4);
-      }
-      
-      `,l([h({attribute:!0})],c.prototype,"label",void 0),l([h({type:String,attribute:!0})],c.prototype,"type",void 0),l([h({attribute:!0})],c.prototype,"value",void 0),c=l([s("otw-input")],c);export{c as OtwInput};
+      font-size: 16px;
+    }
+
+    input[type='color'] {
+      padding: unset;
+      aspect-ratio: 1/1;
+      width: 35px;
+      height: 35px;
+    }
+
+    input[type='color'] {
+      -webkit-appearance: none;
+      border: none;
+    }
+    input[type='color']::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+    input[type='color']::-webkit-color-swatch {
+      border: none;
+    }
+
+    input:focus,
+    input:active,
+    input:focus-visible {
+      outline: none;
+      border: 1px solid rgba(33, 150, 243, 1);
+    }
+
+    input:invalid {
+      border-color: #dc3545;
+    }
+
+    input:disabled {
+      background-color: #e9ecef;
+      cursor: not-allowed;
+    }
+  `,d.formAssociated=!0,l([r({type:String})],d.prototype,"name",void 0),l([r({type:String})],d.prototype,"value",void 0),l([r({type:String})],d.prototype,"label",void 0),l([r({type:String})],d.prototype,"type",void 0),l([r({type:Boolean})],d.prototype,"required",void 0),l([r({type:String})],d.prototype,"placeholder",void 0),l([r({type:Boolean})],d.prototype,"disabled",void 0),d=l([o("otw-input")],d);export{d as FormInput};
 //# sourceMappingURL=otw-input.js.map

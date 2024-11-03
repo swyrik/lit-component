@@ -1,4 +1,4 @@
-import{i as o,r as e,x as t}from"./lit-element-Cjx9BPvc.js";import{t as r}from"./custom-element-CuiGoCVB.js";const n=o`
+import{i as o,r as e,x as t}from"./lit-element-CiB-LLQB.js";import{t as r}from"./custom-element-CuiGoCVB.js";const n=o`
     .button {
         color: white;
         background-color: blue;

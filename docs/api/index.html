@@ -91,7 +91,7 @@
        
        
        
-       <h2>&lt;otw-input></h2>
+       <h2>&lt;otw-checkbox-list></h2>
        <div>
          
        </div>
@@ -103,15 +103,23 @@
      </tr>
      
        <tr>
-         <td>label</td><td></td><td>String</td><td></td>
+         <td>options</td><td></td><td>CheckboxOption[]</td><td>[]</td>
        </tr>
      
        <tr>
-         <td>type</td><td></td><td>String</td><td>"text"</td>
+         <td>name</td><td></td><td>string</td><td>''</td>
        </tr>
      
        <tr>
-         <td>value</td><td></td><td>String</td><td>""</td>
+         <td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>errorMessage</td><td></td><td>string</td><td>''</td>
        </tr>
      
    </table>
@@ -124,7 +132,7 @@
      </tr>
      
        <tr>
-         <td>formAssociated</td><td></td><td></td><td></td><td></td>
+         <td>formAssociated</td><td></td><td></td><td>boolean</td><td>true</td>
        </tr>
      
        <tr>
@@ -132,20 +140,588 @@
        </tr>
      
        <tr>
-         <td>label</td><td>label</td><td></td><td>String</td><td></td>
+         <td>options</td><td>options</td><td></td><td>CheckboxOption[]</td><td>[]</td>
        </tr>
      
        <tr>
-         <td>type</td><td>type</td><td></td><td>String</td><td>"text"</td>
+         <td>name</td><td>name</td><td></td><td>string</td><td>''</td>
        </tr>
      
        <tr>
-         <td>value</td><td>value</td><td></td><td>String</td><td>""</td>
+         <td>required</td><td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>errorMessage</td><td>errorMessage</td><td></td><td>string</td><td>''</td>
        </tr>
      
    </table>
    
        
+   <h3>Methods</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Parameters</th><th>Description</th><th>Return</th>
+     </tr>
+     
+       <tr>
+         <td>formDisabledCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formResetCallback</td><td></td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formStateRestoreCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>state</td><td></td><td>string</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+   </table>
+ 
+       
+   <h3>Events</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th>
+     </tr>
+     
+       <tr>
+         <td>change</td><td></td>
+       </tr>
+     
+   </table>
+     
+         
+       
+       
+       
+       <h2>&lt;otw-input-prefix></h2>
+       <div>
+         
+       </div>
+       
+   <h3>Attributes</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+     </tr>
+     
+       <tr>
+         <td>name</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>value</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>label</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>type</td><td></td><td>string</td><td>'text'</td>
+       </tr>
+     
+       <tr>
+         <td>placeholder</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>unit</td><td></td><td>string</td><td>'px'</td>
+       </tr>
+     
+   </table>
+ 
+       
+   <h3>Properties</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+     </tr>
+     
+       <tr>
+         <td>formAssociated</td><td></td><td></td><td>boolean</td><td>true</td>
+       </tr>
+     
+       <tr>
+         <td>internals</td><td></td><td></td><td>ElementInternals</td><td></td>
+       </tr>
+     
+       <tr>
+         <td>name</td><td>name</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>value</td><td>value</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>label</td><td>label</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>required</td><td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>type</td><td>type</td><td></td><td>string</td><td>'text'</td>
+       </tr>
+     
+       <tr>
+         <td>placeholder</td><td>placeholder</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>unit</td><td>unit</td><td></td><td>string</td><td>'px'</td>
+       </tr>
+     
+       <tr>
+         <td>touched</td><td></td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>errorMessage</td><td></td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>inputValue</td><td></td><td></td><td></td><td></td>
+       </tr>
+     
+   </table>
+   
+       
+   <h3>Methods</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Parameters</th><th>Description</th><th>Return</th>
+     </tr>
+     
+       <tr>
+         <td>formDisabledCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formResetCallback</td><td></td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formStateRestoreCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>state</td><td></td><td>string</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+   </table>
+ 
+       
+   <h3>Events</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th>
+     </tr>
+     
+       <tr>
+         <td>change</td><td></td>
+       </tr>
+     
+   </table>
+     
+         
+       
+       
+       
+       <h2>&lt;otw-input></h2>
+       <div>
+         
+       </div>
+       
+   <h3>Attributes</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+     </tr>
+     
+       <tr>
+         <td>name</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>value</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>label</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>type</td><td></td><td>string</td><td>'text'</td>
+       </tr>
+     
+       <tr>
+         <td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>placeholder</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+   </table>
+ 
+       
+   <h3>Properties</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+     </tr>
+     
+       <tr>
+         <td>name</td><td>name</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>value</td><td>value</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>label</td><td>label</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>type</td><td>type</td><td></td><td>string</td><td>'text'</td>
+       </tr>
+     
+       <tr>
+         <td>required</td><td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>placeholder</td><td>placeholder</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>formAssociated</td><td></td><td></td><td>boolean</td><td>true</td>
+       </tr>
+     
+       <tr>
+         <td>internals</td><td></td><td></td><td>ElementInternals</td><td></td>
+       </tr>
+     
+       <tr>
+         <td>#initialValue</td><td></td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+   </table>
+   
+       
+   <h3>Methods</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Parameters</th><th>Description</th><th>Return</th>
+     </tr>
+     
+       <tr>
+         <td>formAssociatedCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>_form</td><td></td><td>HTMLFormElement</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formDisabledCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formResetCallback</td><td></td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formStateRestoreCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>state</td><td></td><td>string</td>
+       </tr>
+     
+       <tr>
+         <td>mode</td><td></td><td>string</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>#handleInput</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>e</td><td></td><td>Event</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>checkValidity</td><td></td><td></td><td></td>
+       </tr>
+     
+   </table>
+ 
+       
+   <h3>Events</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th>
+     </tr>
+     
+       <tr>
+         <td>rest</td><td></td>
+       </tr>
+     
+       <tr>
+         <td>change</td><td></td>
+       </tr>
+     
+   </table>
+     
+         
+       
+       
+       
+       <h2>&lt;otw-toggle></h2>
+       <div>
+         
+       </div>
+       
+   <h3>Attributes</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+     </tr>
+     
+       <tr>
+         <td>checked</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>name</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>value</td><td></td><td>string</td><td>'on'</td>
+       </tr>
+     
+       <tr>
+         <td>label</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>errorMessage</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+   </table>
+ 
+       
+   <h3>Properties</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+     </tr>
+     
+       <tr>
+         <td>formAssociated</td><td></td><td></td><td>boolean</td><td>true</td>
+       </tr>
+     
+       <tr>
+         <td>internals</td><td></td><td></td><td>ElementInternals</td><td></td>
+       </tr>
+     
+       <tr>
+         <td>checked</td><td>checked</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>name</td><td>name</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>value</td><td>value</td><td></td><td>string</td><td>'on'</td>
+       </tr>
+     
+       <tr>
+         <td>label</td><td>label</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>required</td><td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>errorMessage</td><td>errorMessage</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>validationMessage</td><td></td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+   </table>
+   
+       
+   <h3>Methods</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Parameters</th><th>Description</th><th>Return</th>
+     </tr>
+     
+       <tr>
+         <td>formDisabledCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formResetCallback</td><td></td><td></td><td></td>
+       </tr>
+     
+       <tr>
+         <td>formStateRestoreCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>state</td><td></td><td>unknown</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td></td>
+       </tr>
+     
+   </table>
+ 
        
    <h3>Events</h3>
    <table>

@@ -8,22 +8,55 @@
     <script src="../node_modules/lit/polyfill-support.js"></script> -->
     <script type="module" src="./js/add-column.js"></script>
     <script type="module" src="./js/otw-input.js"></script>
-    <link rel="stylesheet" href="./js/add-column.css">
+    <script type="module" src="./js/otw-input-prefix.js"></script>
+    <script type="module" src="./js/otw-toggle.js"></script>
+    <script type="module" src="./js/otw-checkbox-list.js"></script>
     <style>
       p {
         border: solid 1px blue;
         padding: 8px;
       }
+      div.input-controls {
+        display: grid;
+        grid-template-columns: repeat(3, 150px);
+        gap: 20px
+      }
+      button{
+        margin: 1em;
+        border: 1px solid rgba(0,0,0,0.2);
+        padding: 1em;
+        background-color: blue;
+        color: white;
+        border-radius: 4px;
+      }
     </style>
   </head>
   <body>
     <form id="cst">
-      <otw-input name="first-name" label="first-name"></otw-input>
-      <otw-input name="last-name" label="last-name"></otw-input>
-      <otw-input name="email" label="email" type="email"></otw-input>
+      <div class="input-controls">
+        <otw-input name="first-name" label="first-name" value="swyrik"></otw-input>
+        <otw-input name="last-name" label="last-name"></otw-input>
+        <otw-input name="email" label="email" type="email"></otw-input>
+        <otw-input-prefix name="widthss" placeholder="Enter width" type="number" label="Width"></otw-input-prefix>
+        <otw-toggle name="auto"></otw-toggle>
+        <otw-checkbox-list name="preferences" error-message="Please select at least one preference"
+      ></otw-checkbox-list>
+      <otw-input name="color" label="color" type="color" value="#00ff00"></otw-input>
+      </div>
       <button type="submit">Submit Form</button>
+      <button type="reset">Rest Form</button>
     </form>
     <script>
+
+const checkboxList = document.querySelector('otw-checkbox-list');
+  
+  // Set options
+  checkboxList.options = [
+    { label: 'Option 1', value: 'opt1' },
+    { label: 'Option 2', value: 'opt2' },
+    { label: 'Option 3', value: 'opt3' },
+    { label: 'Option 4', value: 'opt4' }
+  ];
     
       let formcst = document.querySelector('form#cst');
   formcst.addEventListener('submit', e => {

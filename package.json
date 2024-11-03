@@ -20,8 +20,8 @@
     "docs:gen": "eleventy --config=.eleventy.cjs",
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
     "docs:build": "rollup -c",
-    "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
-    "dev:cp": "rimraf dev/js && cp -r docs/js dev",
+    "docs:assets": "shx cp node_modules/prismjs/themes/prism-okaidia.css docs/",
+    "dev:cp": "rimraf dev/js && shx cp -r docs/js dev",
     "docs:serve": "wds --root-dir=docs --node-resolve --watch",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
     "analyze:watch": "cem analyze --litelement --globs \"src/**/*.ts\" --watch",
@@ -69,6 +69,7 @@
     "rollup": "^4.18.0",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-summary": "^2.0.1",
+    "ts-lit-plugin": "^2.0.2",
     "typescript": "~5.5.0"
   },
   "customElements": "custom-elements.json"

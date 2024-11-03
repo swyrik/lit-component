@@ -1,74 +1,185 @@
-import {LitElement, html, css, PropertyValues } from 'lit';
-import {property, customElement}  from 'lit/decorators.js';
+import {LitElement, css, html} from 'lit';
+import {customElement, property} from 'lit/decorators.js';
 
-@customElement("otw-input")
-export class OtwInput extends LitElement {
-  
+@customElement('otw-input')
+export class FormInput extends LitElement {
+  @property({type: String}) name = '';
+  @property({type: String}) value = '';
+  @property({type: String}) label = '';
+  @property({type: String}) type = 'text';
+  @property({type: Boolean}) required = false;
+  @property({type: String}) placeholder = '';
+  @property({type: Boolean}) disabled = false;
+
+  // Define styles
   static override styles = css`
-      input {
-        width: 100%;
-        height: 2em;
-        border: 1px solid rgba(0,0,0,0.1);
+    :host {
+      display: block;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    input {
+      padding: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 4px;
-      }
-      
-      label {
-        font-size: 1em;
-        font-family: verdana;
-        margin-bottom: 1em;
-      }
-      
-      input:hover {
-        border: 1px solid rgba(0,0,0,0.4);
-      }
-      
-      `;
+      font-size: 16px;
+    }
 
-  static get formAssociated() { return true;}
+    input[type='color'] {
+      padding: unset;
+      aspect-ratio: 1/1;
+      width: 35px;
+      height: 35px;
+    }
 
-  internals: ElementInternals;
+    input[type='color'] {
+      -webkit-appearance: none;
+      border: none;
+    }
+    input[type='color']::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+    input[type='color']::-webkit-color-swatch {
+      border: none;
+    }
 
-  constructor(){
+    input:focus,
+    input:active,
+    input:focus-visible {
+      outline: none;
+      border: 1px solid rgba(33, 150, 243, 1);
+    }
+
+    input:invalid {
+      border-color: #dc3545;
+    }
+
+    input:disabled {
+      background-color: #e9ecef;
+      cursor: not-allowed;
+    }
+  `;
+
+  // Make the element form-associated
+  static formAssociated = true;
+  private internals: ElementInternals;
+  #initialValue = '';
+
+  constructor() {
     super();
     this.internals = this.attachInternals();
   }
 
-  protected override updated(changedProperties: PropertyValues): void {
-      if(changedProperties.has('value')) {
-        this.internals.setFormValue(this.value.toString());
-      }
-      super.update(changedProperties);
-
+  // Called when the element is added to a form
+  formAssociatedCallback(_form: HTMLFormElement) {
+    // Do nothing
   }
 
-  
-  
-  @property({attribute: true})
-  label!: String;
-  
-  @property({type: String, attribute: true})
-  type: String = "text";
+  // Called when the element is disabled via form
+  formDisabledCallback(disabled: boolean) {
+    this.disabled = disabled;
+    this.requestUpdate();
+  }
 
-  @property({attribute: true})
-  value: String = "";
+  // Called when form.reset() is called
+  formResetCallback() {
+    this.value = this.#initialValue;
+    this.internals.setFormValue(this.#initialValue);
+    this.requestUpdate();
 
-  // This method ensures the form can access the input's value
-  private handleInput(e: Event) {
+    // Dispatch reset event
+    this.dispatchEvent(
+      new CustomEvent('rest', {
+        detail: {value: this.#initialValue},
+        bubbles: true,
+        composed: true,
+      })
+    );
+  }
+
+  // Called after form state is restored (e.g., browser back/forward)
+  formStateRestoreCallback(state: string, mode: string) {
+    this.value = state || '';
+    this.internals.setFormValue(this.value);
+
+    console.log('Form state restored:', {
+      state,
+      mode, // 'restore' or 'autocomplete'
+      value: this.value,
+    });
+
+    this.requestUpdate();
+  }
+
+  // Handle value changes
+  #handleInput(e: Event) {
     const input = e.target as HTMLInputElement;
     this.value = input.value;
-    // Dispatch a custom event to inform the form of the change
-    this.dispatchEvent(new CustomEvent('change', {
-      detail: { name: this.label, value: this.value },
-      bubbles: true,
-      composed: true
-    }));
+    this.internals.setFormValue(this.value);
+
+    // Dispatch custom event
+    this.dispatchEvent(
+      new CustomEvent('change', {
+        detail: {value: this.value},
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
-  
 
+  // Validate the input
+  checkValidity() {
+    const input = this.renderRoot?.querySelector('input');
+    if (input) {
+      const isValid = input.checkValidity();
+      this.internals.setValidity(
+        input.validity,
+        input.validationMessage,
+        input
+      );
+      return isValid;
+    }
+    return true;
+  }
 
-  
+  // Lifecycle: when element is first connected
+  override connectedCallback() {
+    super.connectedCallback();
+    this.#initialValue = this.value;
+    this.internals.setFormValue(this.value);
+  }
+
   override render() {
-    return html`<label for=${this.label}>${this.label}</label> <input .value=${this.value} name=${this.label} id=${this.label} type=${this.type} @change=${this.handleInput} />`;
+    return html`
+      <div class="form-field">
+        ${this.label ? html`<label for="input">${this.label}</label>` : null}
+        <input
+          id="input"
+          .type=${this.type}
+          .value=${this.value}
+          .placeholder=${this.placeholder}
+          ?required=${this.required}
+          ?disabled=${this.disabled}
+          @input=${this.#handleInput}
+          @blur=${this.checkValidity}
+        />
+      </div>
+    `;
   }
-  
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'otw-input': FormInput;
+  }
 }
