@@ -140,12 +140,13 @@ FormInput.styles = css `
       aspect-ratio: 1/1;
       width: 35px;
       height: 35px;
+      border: 1px solid rgba(0,0,0,0.1);
     }
 
-    input[type='color'] {
+    /* input[type='color'] {
       -webkit-appearance: none;
       border: none;
-    }
+    } */
     input[type='color']::-webkit-color-swatch-wrapper {
       padding: 0;
     }

@@ -41,11 +41,6 @@ export class FormInput extends LitElement {
       width: 35px;
       height: 35px;
     }
-
-    input[type='color'] {
-      -webkit-appearance: none;
-      border: none;
-    }
     input[type='color']::-webkit-color-swatch-wrapper {
       padding: 0;
     }
