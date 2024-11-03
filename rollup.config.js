@@ -7,12 +7,8 @@
 import summary from 'rollup-plugin-summary';
 import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
 import { files } from './build/Rollup.js';
-import postcss from 'rollup-plugin-postcss';
-import cssnano from 'cssnano';
-import postcssPresetEnv from 'postcss-preset-env';
-
+import clear from 'rollup-plugin-clear';
 
 export default {
   input: [
@@ -30,28 +26,11 @@ export default {
     }
   },
   plugins: [
-    replace({preventAssignment: false, 'Reflect.decorate': 'undefined', extensions: ['.js', '.ts','.jsx', '.tsx', '.css', '.less']}),
-    resolve(),
-    postcss({
-      extract: true,
-      plugins: [
-        postcssPresetEnv({
-          stage: 3,
-          features: {
-            'nesting-rules' : true
-          }
-        }),
-        cssnano({
-          preset: 'default',
-        })
-      ],
-      modules: true,
-      autoModules: true,
-      minimize: true,
-      sourceMap: true,
-      inject: false,
-      include: ['**/*.css'],
+    clear({
+      targets: ['docs/js'],
+      watch: true
     }),
+    resolve(),
     /**
      * This minification setup serves the static site generation.
      * For bundling and minification, check the README.md file.

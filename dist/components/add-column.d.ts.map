@@ -1,1 +1,1 @@
-{"version":3,"file":"add-column.d.ts","sourceRoot":"","sources":["../../src/components/add-column.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAmB,MAAM,KAAK,CAAC;AAIlD,qBACa,SAAU,SAAQ,UAAU;IAErC,OAAgB,MAAM,4BAAuB;;IAM7C,MAAM,CAAC,CAAC,EAAE,UAAU;IAIX,MAAM;CAQlB"}
+{"version":3,"file":"add-column.d.ts","sourceRoot":"","sources":["../../src/components/add-column.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAQ,MAAM,KAAK,CAAC;AAMvC,qBACa,SAAU,SAAQ,UAAU;IAErC,OAAgB,MAAM,4BAAiB;;IAOvC,MAAM,CAAC,CAAC,EAAE,UAAU;IAIX,MAAM;CASlB"}

@@ -1,14 +1,17 @@
-import { LitElement, html, unsafeCSS } from "lit";
+import { LitElement, html } from "lit";
 import { customElement } from "lit/decorators.js";
-import styles from './styles/button-styles.css';
+// import styles from './styles/button-styles.module.css' with { type: 'css'};
+import { buttonStyle } from "./styles/buttonstyle";
+
 
 @customElement("add-col")
 export class AddColumn extends LitElement {
 
-    static override styles = [unsafeCSS(styles)];
+    static override styles = [buttonStyle];
     
     constructor(){
         super();
+        console.log("swyrik");
     }
 
     addCol(e :MouseEvent){
@@ -18,6 +21,7 @@ export class AddColumn extends LitElement {
     override render(){
         return html`
             <div class="add-col button">
+                More Color
                 <button @click=${this.addCol}>+</button>
             </div>
         `;

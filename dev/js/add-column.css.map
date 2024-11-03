@@ -1,1 +1,0 @@
-{"version":3,"sources":["button-styles.css"],"names":[],"mappings":"AAAA,6BAEI,wBAAiC,CAEjC,WAAY,CACZ,iBAAkB,CAJlB,UAAY,CAKZ,cAAe,CAHf,eAIJ","file":"add-column.css","sourcesContent":[".button {\n    color: white;\n    background-color: rgb(0, 94, 255);\n    padding: 8px 4px;\n    border: none;\n    border-radius: 4px;\n    cursor: pointer;    \n}"]}

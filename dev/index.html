@@ -7,6 +7,8 @@
     <!-- <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script> -->
     <script type="module" src="./js/add-column.js"></script>
+    <script type="module" src="./js/otw-input.js"></script>
+    <link rel="stylesheet" href="./js/add-column.css">
     <style>
       p {
         border: solid 1px blue;
@@ -15,6 +17,26 @@
     </style>
   </head>
   <body>
-    <add-col></add-col>
+    <form id="cst">
+      <otw-input name="first-name" label="first-name"></otw-input>
+      <otw-input name="last-name" label="last-name"></otw-input>
+      <otw-input name="email" label="email" type="email"></otw-input>
+      <button type="submit">Submit Form</button>
+    </form>
+    <script>
+    
+      let formcst = document.querySelector('form#cst');
+  formcst.addEventListener('submit', e => {
+    e.preventDefault();
+    console.log(e);
+    const formData = new FormData(e.target);
+      console.log(formData);
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+  
+  });
+      
+      </script>
   </body>
 </html>
