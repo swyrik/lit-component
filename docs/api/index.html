@@ -587,6 +587,258 @@
        
        
        
+       <h2>&lt;otw-select></h2>
+       <div>
+         
+       </div>
+       
+   <h3>Attributes</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th><th>Default</th>
+     </tr>
+     
+       <tr>
+         <td>name</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>value</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>label</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>multiple</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>size</td><td></td><td>number</td><td>1</td>
+       </tr>
+     
+       <tr>
+         <td>options</td><td></td><td>SelectOptions</td><td>[]</td>
+       </tr>
+     
+   </table>
+ 
+       
+   <h3>Properties</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Attribute</th><th>Description</th><th>Type</th><th>Default</th>
+     </tr>
+     
+       <tr>
+         <td>name</td><td>name</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>value</td><td>value</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>label</td><td>label</td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+       <tr>
+         <td>required</td><td>required</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>disabled</td><td>disabled</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>multiple</td><td>multiple</td><td></td><td>boolean</td><td>false</td>
+       </tr>
+     
+       <tr>
+         <td>size</td><td>size</td><td></td><td>number</td><td>1</td>
+       </tr>
+     
+       <tr>
+         <td>options</td><td>options</td><td></td><td>SelectOptions</td><td>[]</td>
+       </tr>
+     
+       <tr>
+         <td>formAssociated</td><td></td><td></td><td>boolean</td><td>true</td>
+       </tr>
+     
+       <tr>
+         <td>internals</td><td></td><td></td><td>ElementInternals</td><td></td>
+       </tr>
+     
+       <tr>
+         <td>#initialValue</td><td></td><td></td><td>string</td><td>''</td>
+       </tr>
+     
+   </table>
+   
+       
+   <h3>Methods</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Parameters</th><th>Description</th><th>Return</th>
+     </tr>
+     
+       <tr>
+         <td>formAssociatedCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>form</td><td></td><td>HTMLFormElement</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td>void</td>
+       </tr>
+     
+       <tr>
+         <td>formDisabledCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>disabled</td><td></td><td>boolean</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td>void</td>
+       </tr>
+     
+       <tr>
+         <td>formResetCallback</td><td></td><td></td><td>void</td>
+       </tr>
+     
+       <tr>
+         <td>formStateRestoreCallback</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>state</td><td></td><td>string | null</td>
+       </tr>
+     
+       <tr>
+         <td>_mode</td><td></td><td>'restore' | 'autocomplete'</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td>void</td>
+       </tr>
+     
+       <tr>
+         <td>#handleChange</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>e</td><td></td><td>Event</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td>void</td>
+       </tr>
+     
+       <tr>
+         <td>#isSelected</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>optionValue</td><td></td><td>string</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td>boolean</td>
+       </tr>
+     
+       <tr>
+         <td>#isOptionGroup</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>item</td><td></td><td>SelectOption | OptionGroup</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td>item is OptionGroup</td>
+       </tr>
+     
+       <tr>
+         <td>renderSelectOptions</td><td>
+   
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th><th>Type</th>
+     </tr>
+     
+       <tr>
+         <td>items</td><td></td><td>SelectOptions</td>
+       </tr>
+     
+   </table>
+ </td><td></td><td>TemplateResult<1>[]</td>
+       </tr>
+     
+       <tr>
+         <td>checkValidity</td><td></td><td></td><td>boolean</td>
+       </tr>
+     
+   </table>
+ 
+       
+   <h3>Events</h3>
+   <table>
+     <tr>
+       <th>Name</th><th>Description</th>
+     </tr>
+     
+       <tr>
+         <td>select-input-reset</td><td></td>
+       </tr>
+     
+       <tr>
+         <td>select-input-change</td><td></td>
+       </tr>
+     
+   </table>
+     
+         
+       
+       
+       
        <h2>&lt;otw-toggle></h2>
        <div>
          

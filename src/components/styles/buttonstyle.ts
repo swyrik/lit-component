@@ -10,4 +10,9 @@ export const buttonStyle = css`
         font-size: ${fontSize}px;
         cursor: pointer;
     }
+
+    .button:focus-visible {
+        outline: 1px solid rgba(0,0,0,0.1);
+        outline-offset: 5px;
+    }
 `;

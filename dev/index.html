@@ -11,6 +11,7 @@
     <script type="module" src="./js/otw-input-prefix.js"></script>
     <script type="module" src="./js/otw-toggle.js"></script>
     <script type="module" src="./js/otw-checkbox-list.js"></script>
+    <script type="module" src="./js/otw-select.js"></script>
     <style>
       p {
         border: solid 1px blue;
@@ -42,11 +43,25 @@
         <otw-checkbox-list name="preferences" error-message="Please select at least one preference"
       ></otw-checkbox-list>
       <otw-input name="color" label="color" type="color"></otw-input>
+      <otw-select name="selectss"></otw-select>
       </div>
       <button type="submit">Submit Form</button>
       <button type="reset">Rest Form</button>
     </form>
     <script>
+
+      // Basic usage
+const selectInput = document.querySelector('otw-select');
+selectInput.options = [
+  { label: 'Option 1', value: '1' },
+  { label: 'Option 2', value: '2' }
+];
+
+// Type-safe event handling
+selectInput.addEventListener('select-input-change', (e) => {
+  const { value, selectedOptions } = e.detail;
+  console.log('Selected:', { value, selectedOptions });
+});
 
 const checkboxList = document.querySelector('otw-checkbox-list');
   
