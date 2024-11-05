@@ -179,7 +179,6 @@ SelectInput.styles = css `
       border-radius: 4px;
       background-color: white;
       width: 100%;
-      min-width: 200px;
     }
 
     select[multiple] {

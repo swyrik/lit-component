@@ -1,15 +1,5 @@
 import { LitElement, TemplateResult } from 'lit';
-interface SelectOption {
-    label: string;
-    value: string;
-    disabled?: boolean;
-}
-interface OptionGroup {
-    label: string;
-    options: SelectOption[];
-    disabled?: boolean;
-}
-type SelectOptions = (SelectOption | OptionGroup)[];
+import { SelectOptions } from './types/types';
 export declare class SelectInput extends LitElement {
     #private;
     static styles: import("lit").CSSResult;
@@ -38,5 +28,4 @@ declare global {
         'otw-select': SelectInput;
     }
 }
-export {};
 //# sourceMappingURL=otw-select.d.ts.map

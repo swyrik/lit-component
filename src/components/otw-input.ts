@@ -135,6 +135,15 @@ export class FormInput extends LitElement {
   // Validate the input
   checkValidity() {
     const input = this.renderRoot?.querySelector('input');
+    
+    this.dispatchEvent(
+      new CustomEvent('blur', {
+        bubbles: true,
+        composed: true,
+      })
+    );
+
+
     if (input) {
       const isValid = input.checkValidity();
       this.internals.setValidity(
@@ -145,6 +154,18 @@ export class FormInput extends LitElement {
       return isValid;
     }
     return true;
+  }
+
+  handleOnFocus(e: Event){
+    const input = e.target as HTMLInputElement;
+    this.value = input.value;
+    this.dispatchEvent(
+      new CustomEvent('focus', {
+        detail: {value: this.value},
+        bubbles: true,
+        composed: true,
+      })
+    );
   }
 
   // Lifecycle: when element is first connected
@@ -167,6 +188,7 @@ export class FormInput extends LitElement {
           ?disabled=${this.disabled}
           @input=${this.#handleInput}
           @blur=${this.checkValidity}
+          @focus=${this.handleOnFocus}
         />
       </div>
     `;

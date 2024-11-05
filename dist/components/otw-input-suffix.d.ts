@@ -27,7 +27,7 @@ export declare class InputPrefix extends LitElement {
 }
 declare global {
     interface HTMLElementTagNameMap {
-        'otw-input-prefix': InputPrefix;
+        'otw-input-suffix': InputPrefix;
     }
 }
-//# sourceMappingURL=otw-input-prefix.d.ts.map
+//# sourceMappingURL=otw-input-suffix.d.ts.map

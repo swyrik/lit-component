@@ -61,7 +61,6 @@ import{i as e,r as t,x as i}from"./lit-element-CiB-LLQB.js";import{t as o}from".
       border-radius: 4px;
       background-color: white;
       width: 100%;
-      min-width: 200px;
     }
 
     select[multiple] {

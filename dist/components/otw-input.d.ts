@@ -17,6 +17,7 @@ export declare class FormInput extends LitElement {
     formResetCallback(): void;
     formStateRestoreCallback(state: string, mode: string): void;
     checkValidity(): boolean;
+    handleOnFocus(e: Event): void;
     connectedCallback(): void;
     render(): import("lit-html").TemplateResult<1>;
 }

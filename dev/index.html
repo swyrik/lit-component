@@ -8,10 +8,11 @@
     <script src="../node_modules/lit/polyfill-support.js"></script> -->
     <script type="module" src="./js/add-column.js"></script>
     <script type="module" src="./js/otw-input.js"></script>
-    <script type="module" src="./js/otw-input-prefix.js"></script>
+    <script type="module" src="./js/otw-input-suffix.js"></script>
     <script type="module" src="./js/otw-toggle.js"></script>
     <script type="module" src="./js/otw-checkbox-list.js"></script>
     <script type="module" src="./js/otw-select.js"></script>
+    <script type="module" src="./js/otw-search-input.js"></script>
     <style>
       p {
         border: solid 1px blue;
@@ -19,14 +20,14 @@
       }
       div.input-controls {
         display: grid;
-        grid-template-columns: repeat(3, 150px);
+        grid-template-columns: repeat(3, 250px);
         gap: 20px
       }
       button{
         margin: 1em;
         border: 1px solid rgba(0,0,0,0.2);
         padding: 1em;
-        background-color: blue;
+        background-color: #0000ffb1;
         color: white;
         border-radius: 4px;
       }
@@ -44,6 +45,7 @@
       ></otw-checkbox-list>
       <otw-input name="color" label="color" type="color"></otw-input>
       <otw-select name="selectss"></otw-select>
+      <otw-search-input name="serachInput"></otw-search-input>
       </div>
       <button type="submit">Submit Form</button>
       <button type="reset">Rest Form</button>

@@ -62,4 +62,4 @@ import{i as t,r as e,x as i}from"./lit-element-CiB-LLQB.js";import{t as s}from".
       border-color: #ff0000;
     }
   `,h([r({type:String})],n.prototype,"name",void 0),h([r({type:String})],n.prototype,"value",void 0),h([r({type:String})],n.prototype,"label",void 0),h([r({type:Boolean,reflect:!0})],n.prototype,"disabled",void 0),h([r({type:Boolean})],n.prototype,"required",void 0),h([r({type:String,attribute:!0})],n.prototype,"type",void 0),h([r({type:String})],n.prototype,"placeholder",void 0),h([r({type:String})],n.prototype,"unit",void 0),h([o()],n.prototype,"touched",void 0),h([o()],n.prototype,"errorMessage",void 0),n=h([s("otw-input-prefix")],n);export{n as InputPrefix};
-//# sourceMappingURL=otw-input-prefix.js.map
+//# sourceMappingURL=otw-input-suffix.js.map

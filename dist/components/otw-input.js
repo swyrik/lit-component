@@ -67,12 +67,25 @@ let FormInput = class FormInput extends LitElement {
     // Validate the input
     checkValidity() {
         const input = this.renderRoot?.querySelector('input');
+        this.dispatchEvent(new CustomEvent('blur', {
+            bubbles: true,
+            composed: true,
+        }));
         if (input) {
             const isValid = input.checkValidity();
             this.internals.setValidity(input.validity, input.validationMessage, input);
             return isValid;
         }
         return true;
+    }
+    handleOnFocus(e) {
+        const input = e.target;
+        this.value = input.value;
+        this.dispatchEvent(new CustomEvent('focus', {
+            detail: { value: this.value },
+            bubbles: true,
+            composed: true,
+        }));
     }
     // Lifecycle: when element is first connected
     connectedCallback() {
@@ -93,6 +106,7 @@ let FormInput = class FormInput extends LitElement {
           ?disabled=${this.disabled}
           @input=${__classPrivateFieldGet(this, _FormInput_instances, "m", _FormInput_handleInput)}
           @blur=${this.checkValidity}
+          @focus=${this.handleOnFocus}
         />
       </div>
     `;

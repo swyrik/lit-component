@@ -1,20 +1,6 @@
 import { LitElement, html, css, TemplateResult} from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-
-interface SelectOption {
-  label: string;
-  value: string;
-  disabled?: boolean;
-}
-
-interface OptionGroup {
-  label: string;
-  options: SelectOption[];
-  disabled?: boolean;
-}
-
-
-type SelectOptions = (SelectOption | OptionGroup)[];
+import { SelectOption, SelectOptions, OptionGroup } from './types/types';
 
 @customElement('otw-select')
 export class SelectInput extends LitElement {
@@ -49,7 +35,6 @@ export class SelectInput extends LitElement {
       border-radius: 4px;
       background-color: white;
       width: 100%;
-      min-width: 200px;
     }
 
     select[multiple] {
